@@ -10,7 +10,7 @@
 </head>
 <body>
 
-	<h1>[ 일일 가계부 ]</h1>
+	<h1>일일 가계부</h1>
 	<c:if test="${loginId != null}">
 	<h2>
 	${sessionScope.loginName}(${sessionScope.loginId})님 환영합니다 !!!<br>
