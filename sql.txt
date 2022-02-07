@@ -1,0 +1,20 @@
+-- DML / DDL 명령문을 작성
+
+create table cashbook_member (
+	userid		varchar2(20) 	primary key,		--사용자 아이디
+	userpwd		varchar2(20) 	not null			--로그인 비밀번호
+);
+
+create table cashbook_info (
+	infonum		number			primary key,		--일련번호
+	userid		varchar2(20)	not null,			--ID
+	type		varchar2(20) 	not null,			--수입지출 구분
+	memo		varchar2(1000) 	not null,			--수입지출 내용
+	amount		number			default 0,			--수입지출 금액
+	inputdate	date			default sysdate,	--수입지출 발생날짜
+	constraint cashbook_info_fk foreign key(userid) 
+		references cashbook_member(userid) on delete cascade
+);
+
+create sequence cashbook_info_seq;
+
